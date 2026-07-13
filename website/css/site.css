@@ -1,0 +1,344 @@
+body {
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#000;
+    color: #dedede;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+.navbar .icon {
+    display: none;
+}
+
+.nav-links {
+    display:flex;
+    gap:35px;
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.nav-links a {
+    text-decoration:none;
+    font-size:20px;
+    font-weight:600;
+    color: #dedede;
+}
+
+.nav-links a:hover, .nav-utilities i:hover {
+    background-color: #FFD700;
+    color: #000;
+}
+
+.nav-links .sales-link {
+    color: #6b2bc2;
+}
+
+/* Control order on Desktop to keep logo in the dead center */
+.left-links { order: 1; }
+#logo       { order: 2; }
+.right-links{ order: 3; }
+.nav-utilities { 
+    order: 4; 
+    display: flex;
+    gap: 25px;
+}
+
+#logo img {
+    height: 85px; 
+}
+
+.nav-utilities button {
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-utilities i {
+    color:#dedede;
+    font-size:25px;
+    transition: color .3s;
+}
+
+/* Hero Section */
+.hero img{    
+    width:100%;
+    display:block;
+}
+
+/* Brands Section */
+.brands{
+    background:white;
+    text-align:center;
+    padding:60px;
+}
+
+.brands h2 {
+    font-size:40px;
+    margin-bottom:50px;
+}
+
+.brand-grid {
+    display:grid;
+    grid-template-columns:
+    repeat(5,1fr);
+    gap:50px;
+    align-items:center;
+
+}
+
+.brand img {
+    width:170px;
+    max-width:100%;
+}
+
+/* Trending Section */
+.trending {
+    position:relative;
+    width:100%;
+    overflow: hidden;
+}
+
+.trending img {
+    width:100%;
+    display:block;
+    height: 220px; 
+    object-fit: cover;
+}
+
+.trending-box{
+    position:absolute;
+    top:50%;
+    left:52%;
+    transform:translate(-50%,-50%);
+    width:180px;
+    background:#000;
+    border:3px solid #4a4a4a;
+    box-shadow:5px 5px 0 rgba(0,0,0,.5);
+}
+
+.box-header{
+    background:#000;
+    color:#dedede;
+    font-size:18px;
+    font-weight:bold;
+    padding:12px;
+    border-bottom:3px solid #555;
+}
+
+.box-content{
+    padding:14px;
+    text-align:center;
+    color:#dedede;
+}
+
+.box-content p{
+    margin:0 0 18px;
+    font-size:15px;
+    line-height:1.3;
+}
+
+.shop-button{
+    display:inline-block;
+    background:white;
+    color:#333;
+    text-decoration:none;
+    padding:8px 24px;
+    border-radius:12px;
+    border:3px solid #666;
+    font-size:16px;
+    font-weight:bold;
+    transition:.25s;
+}
+
+.shop-button:hover{
+    background:#FFD700;
+    color:#000;
+    border-color:#FFD700;
+}
+
+/* --- FOOTER --- */
+.footer {
+    color: #dedede;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1.2fr 1.5fr;
+    align-items:start;
+    padding:25px 40px;
+}
+
+.footer p{
+    margin:0;
+}
+
+.footer-column{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+footer a {
+    display:block;
+    color: #dedede;
+    text-decoration: none;
+    margin-bottom:12px;
+}
+
+.footer-column a{
+    color:#dedede;
+    text-decoration:none;
+    font-size:16px;
+}
+
+.footer-column a:hover {
+    color: #FFD700;
+}
+
+.footer-social{
+    text-align:right;
+}
+
+.footer-social p{
+    margin-bottom:10px;
+    font-weight:bold;
+}
+
+.social-icons{
+    display:flex;
+    justify-content:flex-end;
+    gap:20px;
+}
+
+.social-icons a{
+    color:#dedede;
+    font-size:34px;
+    transition:.3s;
+}
+
+.social-icons a:hover{
+    color:#FFD700;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 768px) {
+.navbar {
+        padding: 10px 20px;
+        flex-wrap: wrap;
+        justify-content: flex-start; /* Aligns left elements items together */
+        gap: 15px;
+    }
+
+    /* 1. Hamburger Icon on the absolute right */
+    .navbar .icon {
+        display: block;
+        background: none;
+        border: none;
+        color: #ffffff;
+        font-size: 24px;
+        order: 2;
+        margin-left: auto; /* Pushes utility block all the way to the right side */
+    }
+
+    /* 2. Logo snaps directly next to the hamburger button */
+    #logo {
+        order: 1;
+    }
+    
+    #logo img {
+        height: 45px; /* Slightly smaller for mobile layout scaling */
+    }
+
+    /* 3. Utilities forced to the far right side */
+    .navbar.responsive .nav-utilities {
+        order: 5;
+        display: flex; 
+        gap: 15px;
+    }
+
+    .nav-utilities button {
+        font-size: 18px;
+    }
+
+    /* Hide text menus completely by default on mobile */
+    .left-links, .right-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: left;
+        padding: 5px 0;
+    }
+
+    .nav-utilities {
+        display: none;
+        width: 100%;
+        flex-direction: row;
+        text-align: left;
+        padding: 5px 0;
+    }
+
+    /* 4. Dropdown behavior when active */
+    .navbar.responsive .left-links {
+        display: flex;
+        order: 3;
+        margin-top: 15px; /* Spacing between header row and dropdown list */
+    }
+    
+    .navbar.responsive .right-links {
+        display: flex;
+        order: 4;
+    }
+
+    .brand-grid {
+        grid-template-columns:repeat(2,1fr);
+        gap:25px;
+    }
+
+    .brand img {
+        width:120px;
+        margin:auto;
+    }
+    
+    .trending-box{
+        width:140px;
+    }
+
+    .box-header{
+        font-size:15px;
+    }
+
+    .box-content{
+        padding:10px;
+    }
+
+    .box-content p{
+        font-size:12px;
+    }
+
+    .shop-button{
+        padding:6px 18px;
+        font-size:13px;
+    }
+
+    .footer{
+        grid-template-columns:1fr;
+        text-align:center;
+        gap:25px;
+    }
+
+    .footer-social{
+        text-align:center;
+    }
+
+    .social-icons{
+        justify-content:center;
+    }
+}
